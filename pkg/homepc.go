@@ -1,9 +1,11 @@
 package pkg
 
 type HomePC struct {
-	CPU int
+	CPU          int
+	GraphicsCard int
+	Wrapper      Wrapper
 }
 
 func (pc *HomePC) GetPrice() float64 {
-	return 10.0 + float64(pc.CPU)
+	return pc.Wrapper.GetPrice()*float64(pc.CPU) + float64(pc.GraphicsCard)
 }
